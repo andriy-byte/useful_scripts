@@ -26,8 +26,9 @@ def run_command_in_dir(path: Union[Path, str], command: str, trigger: list[str])
 
 
 def main():
-    program_description = "script who iterates щт directories and run command, can have trigger (specific directory or file)," \
-                          " in this case command will execute if directory contains trigger "
+    program_description = "script who iterates in directories and run command, can have trigger (specific directory or file)," \
+                          " in this case command will execute if directory contains trigger \n" \
+                          "example : python cmidir.py --path \"../some path/\" --command \"some command\" --trigger \".git\" --trigger \"file.txt\" "
 
     parser = argparse.ArgumentParser(prog="Iterate and execute with triggers", description=program_description)
     parser.add_argument("--path", type=str, dest="path", help="input path where script will run",
@@ -54,4 +55,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
