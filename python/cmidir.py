@@ -1,6 +1,5 @@
 import argparse
 import os
-import time
 from pathlib import Path
 from typing import Union, Final
 
@@ -16,7 +15,7 @@ def has_triggers(dir: Path, triggers: list[str]) -> bool:
 
 
 def run_command_in_dir(path: Union[Path, str], command: str, trigger: list[str], ignore_folder: list[str]):
-    ignore_folder=ignore_folder if ignore_folder else []
+    ignore_folder = ignore_folder if ignore_folder else []
     for dir in path.iterdir():
         if dir.is_dir():
             if dir.name not in ignore_folder:
@@ -28,7 +27,6 @@ def run_command_in_dir(path: Union[Path, str], command: str, trigger: list[str],
                     run_command_in_dir(dir, command, trigger, ignore_folder)
             else:
                 run_command_in_dir(dir, command, trigger, ignore_folder)
-            
 
 
 def main():
